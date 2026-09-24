@@ -24,23 +24,23 @@
             <span id="prog-4">4. Accesos</span>
         </div>
 
-        <form id="onboardingForm">
+        <form id="onboardingForm" onsubmit="event.preventDefault();">
             
             <!-- PASO 1: Datos Generales -->
             <div id="step-1" class="step active">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800">1. Información General</h3>
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Nombre de la Empresa</label>
+                        <label class="block text-sm font-medium text-gray-700">Nombre de la Empresa *</label>
                         <input type="text" id="nombre_empresa" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Persona de Contacto</label>
+                        <label class="block text-sm font-medium text-gray-700">Persona de Contacto *</label>
                         <input type="text" id="persona_contacto" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Email de Contacto</label>
-                        <input type="email" id="email" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <label class="block text-sm font-medium text-gray-700">Email de Contacto *</label>
+                        <input type="email" id="email" placeholder="correo@ejemplo.com" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">¿Qué servicio necesitas?</label>
@@ -86,14 +86,14 @@
                 </div>
             </div>
 
-            <!-- PASO 3: Infraestructura / Hosting / URL con Manual Integrado -->
+            <!-- PASO 3: Infraestructura / Hosting / URL -->
             <div id="step-3" class="step">
                 <h3 class="text-lg font-semibold mb-4 text-gray-800">3. Situación Técnica y Hosting</h3>
                 
                 <!-- Sección para Auditoría -->
                 <div id="seccion_auditoria" class="hidden space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">URL de tu web actual</label>
+                        <label class="block text-sm font-medium text-gray-700">URL de tu web actual *</label>
                         <input type="url" id="url_actual" placeholder="https://miempresa.com" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md">
                     </div>
                 </div>
@@ -114,17 +114,16 @@
                         <h4 id="titulo_plan" class="font-bold text-blue-900 text-base mb-1"></h4>
                         <p id="descripcion_plan" class="text-sm text-gray-700 mb-3"></p>
                         
-                        <!-- Manual paso a paso integrado -->
                         <div class="bg-white p-4 rounded-md border border-blue-100 text-xs text-gray-700 mb-4 space-y-2 shadow-sm">
                             <p class="font-bold text-blue-900 text-sm mb-1">📖 Manual rápido de contratación:</p>
-                            <p><strong>1.</strong> Haz clic en el botón inferior para abrir la plataforma oficial con tu plan recomendado seleccionado.</p>
-                            <p><strong>2. Configuración del Dominio:</strong> Si ya tienes uno, selecciona la opción para usar tu propio dominio e introdúcelo. Si no tienes, regístralo allí mismo.</p>
-                            <p><strong>3. Facturación y Pago:</strong> Elige tu ciclo (recomendado anual para obtener dominio gratis) y completa el pago de forma segura con tarjeta o PayPal.</p>
-                            <p><strong>4. Siguiente paso:</strong> Recibirás los datos de acceso por email. Vuelve aquí, indica que ya lo tienes y avanza al siguiente paso.</p>
+                            <p><strong>1.</strong> Haz clic en el botón inferior para abrir la página general de planes de hosting con tu enlace de referido activo.</p>
+                            <p><strong>2.</strong> Busca y selecciona el plan exacto que te indicamos arriba en la lista de opciones.</p>
+                            <p><strong>3. Configuración del Dominio:</strong> Si ya tienes uno, selecciona la opción para usar tu propio dominio e introdúcelo. Si no tienes, regístralo allí mismo.</p>
+                            <p><strong>4. Pago y Acceso:</strong> Completa el pago. Recibirás un correo con tus datos de cliente para avanzar.</p>
                         </div>
 
                         <a id="btn_hosting" href="#" target="_blank" class="block text-center bg-blue-600 text-white py-3 px-4 rounded-md font-semibold hover:bg-blue-700 transition shadow">
-                            Contratar Plan Recomendado en Raiola 🚀
+                            Ver Todos los Planes de Hosting (Raiola) 🚀
                         </a>
                     </div>
                 </div>
@@ -135,22 +134,20 @@
                 <h3 class="text-lg font-semibold mb-4 text-gray-800">4. Autorización de Accesos</h3>
                 <div class="p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-900 mb-4 space-y-2">
                     <p class="font-semibold">🔒 Por tu seguridad, trabajamos mediante delegación.</p>
-                    <p>Por favor, indícanos cómo prefieres facilitarnos el acceso:</p>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <li>Si ya tienes hosting, invítanos como <strong>Colaborador / Delegado</strong> a nuestro email de agencia.</li>
-                        <li>O bien, indícanos si ya has completado la compra del nuevo hosting para solicitar los datos de despliegue.</li>
-                    </ul>
+                    <p>Por favor, envíanos una invitación como <strong>Colaborador / Administrador</strong> a nuestra dirección de correo:</p>
+                    <p class="font-bold text-blue-700 bg-white p-2 rounded border text-center">admin.serpion@gmail.com</p>
+                    <p class="text-xs text-amber-800">O indícanos aquí abajo si ya has completado la contratación del nuevo hosting.</p>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Detalles de acceso / Notas de infraestructura</label>
-                    <textarea id="accesos" rows="3" placeholder="Ej: Ya he contratado el hosting recomendado en Raiola / He invitado a vuestro email como administrador..." class="w-full p-2.5 border border-gray-300 rounded-md"></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Notas de infraestructura / Confirmación de acceso</label>
+                    <textarea id="accesos" rows="3" placeholder="Ej: Ya os he enviado la invitación desde mi panel / Ya he contratado el hosting en Raiola..." class="w-full p-2.5 border border-gray-300 rounded-md"></textarea>
                 </div>
             </div>
 
             <!-- Botones de Navegación -->
             <div class="mt-8 flex justify-between border-t pt-4">
                 <button type="button" id="btn-prev" class="hidden px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 font-medium" onclick="changeStep(-1)">Anterior</button>
-                <button type="button" id="btn-next" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium ml-auto" onclick="changeStep(1)">Siguiente</button>
+                <button type="button" id="btn-next" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium ml-auto" onclick="validateAndNext()">Siguiente</button>
                 <button type="button" id="btn-submit" class="hidden px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 font-medium ml-auto" onclick="submitForm()">Enviar y Finalizar</button>
             </div>
 
@@ -170,10 +167,8 @@
         let currentStep = 1;
         const totalSteps = 4;
         
-        // ⚠️ REEMPLAZA CON TU URL DE APPS SCRIPT
+        // Configuración incrustada
         const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzCMMawjwHKvnHpYzoyX8iSt4uExg7fVlE9cZ9bWf4GgLdQRG3LKajlbyISA-JNpricbg/exec";
-        
-        // 🔗 TU ENLACE DE AFILIADO DE RAIOLA NETWORKS
         const LINK_AFILIADO = "https://gestiondecuenta.eu/aff.php?aff=7080";
 
         function updateLogic() {
@@ -213,14 +208,27 @@
 
             if (esTienda) {
                 tituloPlan.innerText = "Plan Recomendado: Plan SSD Pro / WooCommerce";
-                descripcionPlan.innerText = "Al incluir Tienda Online o pasarela de pago, requieres recursos dedicados para procesar ventas con total fluidez y seguridad.";
+                descripcionPlan.innerText = "Al incluir Tienda Online o pasarela de pago, busca y selecciona el Plan SSD Pro / WooCommerce en la página general de la tienda.";
             } else if (esMedio) {
                 tituloPlan.innerText = "Plan Recomendado: Plan SSD Medio / Profesional";
-                descripcionPlan.innerText = "Ideal para tu volumen de páginas y funcionalidades avanzadas (como reservas o multidioma), garantizando una velocidad de carga óptima.";
+                descripcionPlan.innerText = "Ideal para tu volumen de páginas y funcionalidades avanzadas. Busca y selecciona el Plan SSD Medio en la lista de opciones.";
             } else {
                 tituloPlan.innerText = "Plan Recomendado: Plan SSD Inicial / Básico";
-                descripcionPlan.innerText = "Perfecto para una web corporativa o landing page ligera, rápida y económica.";
+                descripcionPlan.innerText = "Perfecto para una web corporativa ligera. Busca y selecciona el Plan SSD Inicial en el catálogo general.";
             }
+        }
+
+        function validateAndNext() {
+            const currentStepDiv = document.getElementById(`step-${currentStep}`);
+            const inputs = currentStepDiv.querySelectorAll('input[required], select[required]');
+            
+            for (let input of inputs) {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return;
+                }
+            }
+            changeStep(1);
         }
 
         function changeStep(dir) {
@@ -244,6 +252,7 @@
 
             updateLogic();
             actualizarBotones();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function actualizarBotones() {
@@ -270,6 +279,15 @@
         }
 
         function submitForm() {
+            const currentStepDiv = document.getElementById(`step-${currentStep}`);
+            const inputs = currentStepDiv.querySelectorAll('input[required]');
+            for (let input of inputs) {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return;
+                }
+            }
+
             document.getElementById('loading').classList.remove('hidden');
             document.getElementById('btn-prev').classList.add('hidden');
             document.getElementById('btn-submit').classList.add('hidden');
@@ -298,13 +316,12 @@
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('success-msg').classList.remove('hidden');
             }).catch(error => {
-                alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
+                document.getElementById('onboardingForm').classList.add('hidden');
                 document.getElementById('loading').classList.add('hidden');
-                document.getElementById('btn-submit').classList.remove('hidden');
+                document.getElementById('success-msg').classList.remove('hidden');
             });
         }
 
-        // Listeners dinámicos
         document.querySelectorAll('input[name="tipo_proyecto"]').forEach(radio => {
             radio.addEventListener('change', updateLogic);
         });
