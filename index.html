@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Proyecto Web</title>
+    <title>Inicio de Proyecto Web - Onboarding</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .step { display: none; }
@@ -13,13 +13,14 @@
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
 
     <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Cuestionario de Proyecto Web</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2 text-center">Configuración de tu Proyecto Web</h2>
+        <p class="text-sm text-gray-500 mb-6 text-center">Completa los datos para que podamos comenzar a trabajar.</p>
         
         <!-- Indicador de Progreso -->
-        <div class="flex justify-between mb-8 text-sm font-medium text-gray-400">
-            <span id="prog-1" class="text-blue-600">1. Datos</span>
+        <div class="flex justify-between mb-8 text-sm font-medium text-gray-400 border-b pb-4">
+            <span id="prog-1" class="text-blue-600 font-bold">1. Datos</span>
             <span id="prog-2">2. Alcance</span>
-            <span id="prog-3">3. Técnica</span>
+            <span id="prog-3">3. Hosting</span>
             <span id="prog-4">4. Accesos</span>
         </div>
 
@@ -27,34 +28,34 @@
             
             <!-- PASO 1: Datos Generales -->
             <div id="step-1" class="step active">
-                <h3 class="text-lg font-semibold mb-4">Información General</h3>
+                <h3 class="text-lg font-semibold mb-4 text-gray-800">1. Información General</h3>
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre de la Empresa</label>
-                        <input type="text" id="nombre_empresa" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <input type="text" id="nombre_empresa" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Persona de Contacto</label>
-                        <input type="text" id="persona_contacto" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <input type="text" id="persona_contacto" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <label class="block text-sm font-medium text-gray-700">Email de Contacto</label>
+                        <input type="email" id="email" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">¿Qué necesitas?</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">¿Qué servicio necesitas?</label>
                         <div class="space-y-2">
-                            <label class="flex items-center p-3 border rounded cursor-pointer hover:bg-gray-50">
+                            <label class="flex items-center p-3 border rounded-md cursor-pointer hover:bg-gray-50">
                                 <input type="radio" name="tipo_proyecto" value="Web desde cero" class="text-blue-600" checked>
-                                <span class="ml-2">Crear una web desde cero</span>
+                                <span class="ml-2 font-medium">Crear una web nueva desde cero</span>
                             </label>
-                            <label class="flex items-center p-3 border rounded cursor-pointer hover:bg-gray-50">
+                            <label class="flex items-center p-3 border rounded-md cursor-pointer hover:bg-gray-50">
                                 <input type="radio" name="tipo_proyecto" value="Rediseño" class="text-blue-600">
-                                <span class="ml-2">Rediseñar mi web actual</span>
+                                <span class="ml-2 font-medium">Rediseñar mi web actual</span>
                             </label>
-                            <label class="flex items-center p-3 border rounded cursor-pointer hover:bg-gray-50">
+                            <label class="flex items-center p-3 border rounded-md cursor-pointer hover:bg-gray-50">
                                 <input type="radio" name="tipo_proyecto" value="Auditoria/Mejoras" class="text-blue-600">
-                                <span class="ml-2">Mejorar / Auditar mi web (SEO y Velocidad)</span>
+                                <span class="ml-2 font-medium">Mejorar / Auditar mi web actual (SEO y WPO)</span>
                             </label>
                         </div>
                     </div>
@@ -63,91 +64,117 @@
 
             <!-- PASO 2: Alcance (Se oculta si es Auditoría) -->
             <div id="step-2" class="step">
-                <h3 class="text-lg font-semibold mb-4">Alcance de la Web</h3>
+                <h3 class="text-lg font-semibold mb-4 text-gray-800">2. Alcance y Funcionalidades</h3>
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Tamaño aproximado</label>
-                        <select id="paginas" class="mt-1 w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        <label class="block text-sm font-medium text-gray-700">Tamaño aproximado de la web</label>
+                        <select id="paginas" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md bg-white">
                             <option value="1-5 paginas">Básico (1 a 5 páginas / Landing Page)</option>
                             <option value="6-10 paginas">Medio (6 a 10 páginas)</option>
-                            <option value="+10 paginas">Grande (Más de 10 páginas)</option>
+                            <option value="+10 paginas">Avanzado (Más de 10 páginas)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Funcionalidades Especiales (Marca las necesarias)</label>
-                        <div class="space-y-2" id="funcionalidades_container">
-                            <label class="flex items-center"><input type="checkbox" value="Tienda Online" class="mr-2"> Tienda Online (Cobros por tarjeta)</label>
-                            <label class="flex items-center"><input type="checkbox" value="Reservas" class="mr-2"> Sistema de Reservas / Citas</label>
-                            <label class="flex items-center"><input type="checkbox" value="Multidioma" class="mr-2"> Varios Idiomas</label>
-                            <label class="flex items-center"><input type="checkbox" value="WPO/SEO" class="mr-2"> Optimización de Velocidad y SEO On-Page</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Funcionalidades Especiales (Selecciona las que apliquen)</label>
+                        <div class="space-y-2 p-3 bg-gray-50 rounded-md border" id="funcionalidades_container">
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" value="Tienda Online" class="mr-2 h-4 w-4 text-blue-600"> Tienda Online / E-commerce (Pasarela de pago)</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" value="Reservas" class="mr-2 h-4 w-4 text-blue-600"> Sistema de Reservas / Citas previas</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" value="Multidioma" class="mr-2 h-4 w-4 text-blue-600"> Varios Idiomas (Multidioma)</label>
+                            <label class="flex items-center cursor-pointer"><input type="checkbox" value="WPO/SEO" class="mr-2 h-4 w-4 text-blue-600"> Optimización avanzada de Velocidad y SEO</label>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PASO 3: Infraestructura / Hosting / URL -->
+            <!-- PASO 3: Infraestructura / Hosting / URL con Manual Integrado -->
             <div id="step-3" class="step">
-                <h3 class="text-lg font-semibold mb-4">Situación Técnica</h3>
+                <h3 class="text-lg font-semibold mb-4 text-gray-800">3. Situación Técnica y Hosting</h3>
                 
                 <!-- Sección para Auditoría -->
                 <div id="seccion_auditoria" class="hidden space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">URL de tu web actual</label>
-                        <input type="url" id="url_actual" placeholder="https://miempresa.com" class="mt-1 w-full p-2 border border-gray-300 rounded-md">
+                        <input type="url" id="url_actual" placeholder="https://miempresa.com" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md">
                     </div>
                 </div>
 
                 <!-- Sección para Web Nueva/Rediseño -->
                 <div id="seccion_hosting" class="space-y-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">¿Tienes Dominio y Hosting contratado?</label>
-                    <select id="situacion_hosting" class="mt-1 w-full p-2 border border-gray-300 rounded-md" onchange="actualizarHostingRecomendado()">
-                        <option value="No tengo">No tengo nada, necesito contratarlo</option>
-                        <option value="Tengo dominio">Tengo el dominio, me falta el hosting</option>
-                        <option value="Tengo ambos">Ya tengo dominio y hosting (Opciones completas)</option>
-                    </select>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">¿Dispones de Dominio y Hosting contratado?</label>
+                        <select id="situacion_hosting" class="mt-1 w-full p-2.5 border border-gray-300 rounded-md bg-white" onchange="actualizarHostingRecomendado()">
+                            <option value="No tengo">No tengo nada (Necesito comprar dominio y hosting)</option>
+                            <option value="Tengo dominio">Tengo el dominio, me falta el hosting</option>
+                            <option value="Tengo ambos">Ya tengo ambos contratados</option>
+                        </select>
+                    </div>
 
-                    <div id="hosting_recomendacion" class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                        <h4 class="font-bold text-blue-800 mb-2">Recomendación para tu proyecto:</h4>
-                        <p id="texto_hosting" class="text-sm text-gray-700 mb-4"></p>
-                        <a id="btn_hosting" href="#" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700">Ver Plan Recomendado</a>
+                    <!-- Caja Dinámica con Recomendación y Manual de Compra -->
+                    <div id="hosting_recomendacion" class="mt-4 p-5 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h4 id="titulo_plan" class="font-bold text-blue-900 text-base mb-1"></h4>
+                        <p id="descripcion_plan" class="text-sm text-gray-700 mb-3"></p>
+                        
+                        <!-- Manual paso a paso integrado -->
+                        <div class="bg-white p-4 rounded-md border border-blue-100 text-xs text-gray-700 mb-4 space-y-2 shadow-sm">
+                            <p class="font-bold text-blue-900 text-sm mb-1">📖 Manual rápido de contratación:</p>
+                            <p><strong>1.</strong> Haz clic en el botón inferior para abrir la plataforma oficial con tu plan recomendado seleccionado.</p>
+                            <p><strong>2. Configuración del Dominio:</strong> Si ya tienes uno, selecciona la opción para usar tu propio dominio e introdúcelo. Si no tienes, regístralo allí mismo.</p>
+                            <p><strong>3. Facturación y Pago:</strong> Elige tu ciclo (recomendado anual para obtener dominio gratis) y completa el pago de forma segura con tarjeta o PayPal.</p>
+                            <p><strong>4. Siguiente paso:</strong> Recibirás los datos de acceso por email. Vuelve aquí, indica que ya lo tienes y avanza al siguiente paso.</p>
+                        </div>
+
+                        <a id="btn_hosting" href="#" target="_blank" class="block text-center bg-blue-600 text-white py-3 px-4 rounded-md font-semibold hover:bg-blue-700 transition shadow">
+                            Contratar Plan Recomendado en Raiola 🚀
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- PASO 4: Accesos -->
+            <!-- PASO 4: Accesos Seguros -->
             <div id="step-4" class="step">
-                <h3 class="text-lg font-semibold mb-4">Accesos Seguros</h3>
-                <p class="text-sm text-gray-600 mb-4">
-                    Para empezar a trabajar, necesitamos acceso a tu panel. Tienes dos opciones:<br>
-                    <strong>1. Delegación:</strong> Invita a <i>tuemail@agencia.com</i> como colaborador desde tu panel (Recomendado).<br>
-                    <strong>2. Clave Temporal:</strong> Cambia tu clave a <code>ProyectoWeb2026!</code> y pégala aquí abajo.
-                </p>
-                <textarea id="accesos" rows="4" placeholder="Pega aquí los datos de acceso o infórmanos si nos has enviado una invitación al email." class="w-full p-2 border border-gray-300 rounded-md"></textarea>
+                <h3 class="text-lg font-semibold mb-4 text-gray-800">4. Autorización de Accesos</h3>
+                <div class="p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-900 mb-4 space-y-2">
+                    <p class="font-semibold">🔒 Por tu seguridad, trabajamos mediante delegación.</p>
+                    <p>Por favor, indícanos cómo prefieres facilitarnos el acceso:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Si ya tienes hosting, invítanos como <strong>Colaborador / Delegado</strong> a nuestro email de agencia.</li>
+                        <li>O bien, indícanos si ya has completado la compra del nuevo hosting para solicitar los datos de despliegue.</li>
+                    </ul>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Detalles de acceso / Notas de infraestructura</label>
+                    <textarea id="accesos" rows="3" placeholder="Ej: Ya he contratado el hosting recomendado en Raiola / He invitado a vuestro email como administrador..." class="w-full p-2.5 border border-gray-300 rounded-md"></textarea>
+                </div>
             </div>
 
             <!-- Botones de Navegación -->
-            <div class="mt-8 flex justify-between">
-                <button type="button" id="btn-prev" class="hidden px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" onclick="changeStep(-1)">Anterior</button>
-                <button type="button" id="btn-next" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 ml-auto" onclick="changeStep(1)">Siguiente</button>
-                <button type="button" id="btn-submit" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 ml-auto" onclick="submitForm()">Enviar y Empezar</button>
+            <div class="mt-8 flex justify-between border-t pt-4">
+                <button type="button" id="btn-prev" class="hidden px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 font-medium" onclick="changeStep(-1)">Anterior</button>
+                <button type="button" id="btn-next" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 font-medium ml-auto" onclick="changeStep(1)">Siguiente</button>
+                <button type="button" id="btn-submit" class="hidden px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 font-medium ml-auto" onclick="submitForm()">Enviar y Finalizar</button>
             </div>
 
             <!-- Cargando -->
-            <div id="loading" class="hidden mt-4 text-center text-blue-600 font-medium">Enviando datos al sistema...</div>
+            <div id="loading" class="hidden mt-4 text-center text-blue-600 font-medium">Enviando datos de forma segura...</div>
         </form>
         
         <!-- Mensaje de Éxito -->
         <div id="success-msg" class="hidden text-center py-8">
-            <div class="text-green-500 text-5xl mb-4">✓</div>
-            <h2 class="text-2xl font-bold text-gray-800">¡Proyecto Recibido!</h2>
-            <p class="text-gray-600 mt-2">Hemos recibido tu información técnica. Nos pondremos a trabajar de inmediato.</p>
+            <div class="text-green-500 text-6xl mb-3">✓</div>
+            <h2 class="text-2xl font-bold text-gray-800">¡Información Recibida con Éxito!</h2>
+            <p class="text-gray-600 mt-2">Hemos registrado los parámetros técnicos. Nos pondremos manos a la obra.</p>
         </div>
     </div>
 
     <script>
         let currentStep = 1;
         const totalSteps = 4;
+        
+        // ⚠️ REEMPLAZA CON TU URL DE APPS SCRIPT
         const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzCMMawjwHKvnHpYzoyX8iSt4uExg7fVlE9cZ9bWf4GgLdQRG3LKajlbyISA-JNpricbg/exec";
+        
+        // 🔗 TU ENLACE DE AFILIADO DE RAIOLA NETWORKS
+        const LINK_AFILIADO = "https://gestiondecuenta.eu/aff.php?aff=7080";
 
         function updateLogic() {
             const tipo = document.querySelector('input[name="tipo_proyecto"]:checked').value;
@@ -167,13 +194,14 @@
         function actualizarHostingRecomendado() {
             const estadoHosting = document.getElementById('situacion_hosting').value;
             const cajaRecomendacion = document.getElementById('hosting_recomendacion');
-            const texto = document.getElementById('texto_hosting');
+            const tituloPlan = document.getElementById('titulo_plan');
+            const descripcionPlan = document.getElementById('descripcion_plan');
             const boton = document.getElementById('btn_hosting');
             
             const paginas = document.getElementById('paginas').value;
             const checkboxes = Array.from(document.querySelectorAll('#funcionalidades_container input:checked')).map(cb => cb.value);
             const esTienda = checkboxes.includes('Tienda Online');
-            const esMedio = paginas === '6-10 paginas' || checkboxes.includes('Reservas') || checkboxes.includes('Multidioma');
+            const esMedio = paginas === '6-10 paginas' || paginas === '+10 paginas' || checkboxes.includes('Reservas') || checkboxes.includes('Multidioma');
 
             if (estadoHosting === 'Tengo ambos') {
                 cajaRecomendacion.classList.add('hidden');
@@ -181,23 +209,23 @@
             }
 
             cajaRecomendacion.classList.remove('hidden');
+            boton.href = LINK_AFILIADO;
 
             if (esTienda) {
-                texto.innerText = "Al requerir Tienda Online y pasarela de pago, necesitas un servidor potente para procesar ventas sin bloqueos. Te recomendamos el Plan SSD Pro / WooCommerce.";
-                boton.href = "https://gestiondecuenta.eu/index.php?rp=/store/hosting-ssd-2022"; // CAMBIAR POR AFILIADO PRO
+                tituloPlan.innerText = "Plan Recomendado: Plan SSD Pro / WooCommerce";
+                descripcionPlan.innerText = "Al incluir Tienda Online o pasarela de pago, requieres recursos dedicados para procesar ventas con total fluidez y seguridad.";
             } else if (esMedio) {
-                texto.innerText = "Por el volumen de páginas y funcionalidades, te recomendamos el Plan SSD Medio para garantizar que la web cargue muy rápido.";
-                boton.href = "https://gestiondecuenta.eu/index.php?rp=/store/hosting-ssd-2022"; // CAMBIAR POR AFILIADO MEDIO
+                tituloPlan.innerText = "Plan Recomendado: Plan SSD Medio / Profesional";
+                descripcionPlan.innerText = "Ideal para tu volumen de páginas y funcionalidades avanzadas (como reservas o multidioma), garantizando una velocidad de carga óptima.";
             } else {
-                texto.innerText = "Para una web corporativa básica y rápida, el Plan SSD Inicial es perfecto y muy económico.";
-                boton.href = "https://gestiondecuenta.eu/index.php?rp=/store/hosting-ssd-2022"; // CAMBIAR POR AFILIADO BASICO
+                tituloPlan.innerText = "Plan Recomendado: Plan SSD Inicial / Básico";
+                descripcionPlan.innerText = "Perfecto para una web corporativa o landing page ligera, rápida y económica.";
             }
         }
 
         function changeStep(dir) {
             const tipo = document.querySelector('input[name="tipo_proyecto"]:checked').value;
             
-            // Lógica de saltos (Si es auditoría, saltamos el paso 2 de alcance visual)
             if (currentStep === 1 && dir === 1 && tipo === 'Auditoria/Mejoras') {
                 document.getElementById(`step-${currentStep}`).classList.remove('active');
                 currentStep = 3; 
@@ -232,10 +260,10 @@
             for(let i=1; i<=totalSteps; i++) {
                 const nav = document.getElementById(`prog-${i}`);
                 if(i <= currentStep) {
-                    nav.classList.add('text-blue-600');
+                    nav.classList.add('text-blue-600', 'font-bold');
                     nav.classList.remove('text-gray-400');
                 } else {
-                    nav.classList.remove('text-blue-600');
+                    nav.classList.remove('text-blue-600', 'font-bold');
                     nav.classList.add('text-gray-400');
                 }
             }
@@ -276,7 +304,7 @@
             });
         }
 
-        // Listener inicial
+        // Listeners dinámicos
         document.querySelectorAll('input[name="tipo_proyecto"]').forEach(radio => {
             radio.addEventListener('change', updateLogic);
         });
