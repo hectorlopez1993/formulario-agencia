@@ -112,17 +112,17 @@
                     <!-- Caja Dinámica con Recomendación y Manual de Compra -->
                     <div id="hosting_recomendacion" class="mt-4 p-5 bg-blue-50 border border-blue-200 rounded-lg">
                         <h4 class="font-bold text-blue-900 text-sm mb-1">💡 Recomendación Profesional:</h4>
-                        <p class="text-xs text-gray-700 mb-2">Recomendamos <strong>Raiola Hosting</strong> por su velocidad, estabilidad y soporte en español 24/7.</p>
+                        <p class="text-xs text-gray-700 mb-2">Recomendamos <strong>Raiola Networks</strong> por su velocidad, estabilidad y soporte en español 24/7.</p>
                         
                         <div id="detalle_plan" class="p-3 bg-white rounded border border-blue-200 mb-3">
                             <h5 id="titulo_plan" class="font-bold text-blue-800 text-sm"></h5>
                             <p id="descripcion_plan" class="text-xs text-gray-600 mt-1"></p>
                         </div>
 
-                        <!-- Imagen orientativa de Raiola -->
-                        <div class="mb-3 text-center">
-                            <img src="logo-raiola-blanco.svg" alt="Opciones de Hosting Raiola" class="mx-auto rounded border shadow-sm max-h-40 object-cover">
-                            <p class="text-[11px] text-gray-500 mt-1">Busca la opción indicada en la web de Raiola.</p>
+                        <!-- Imagen orientativa de Raiola con fondo oscuro para resaltar el logo blanco -->
+                        <div class="mb-3 text-center bg-slate-900 p-3 rounded-lg border shadow-sm">
+                            <img src="logo-raiola-blanco.svg" alt="Opciones de Hosting Raiola" class="mx-auto max-h-32 object-contain">
+                            <p class="text-[11px] text-gray-300 mt-2">Busca la opción indicada en la web de Raiola.</p>
                         </div>
                         
                         <div class="bg-white p-3 rounded-md border border-blue-100 text-xs text-gray-700 mb-3 space-y-1.5 shadow-sm">
@@ -180,8 +180,10 @@
         
         const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzCMMawjwHKvnHpYzoyX8iSt4uExg7fVlE9cZ9bWf4GgLdQRG3LKajlbyISA-JNpricbg/exec";
         
-        const URL_CMS = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-wordpress/";
-        const URL_WEB = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-web/";
+        const URL_INICIO = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-wordpress-inicio/";
+        const URL_BASE = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-wordpress/";
+        const URL_MEDIO = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-wordpress-medio/";
+        const URL_PRO = "https://gestiondecuenta.eu/aff.php?aff=7080&hosting-wordpress-pro/";
 
         function updateLogic() {
             const tipo = document.querySelector('input[name="tipo_proyecto"]:checked').value;
@@ -208,7 +210,8 @@
             const paginas = document.getElementById('paginas').value;
             const checkboxes = Array.from(document.querySelectorAll('#funcionalidades_container input:checked')).map(cb => cb.value);
             const esTienda = checkboxes.includes('Tienda Online');
-            const esMedio = paginas === '6-10 paginas' || paginas === '+10 paginas' || checkboxes.includes('Reservas') || checkboxes.includes('Multidioma');
+            const esMultidioma = checkboxes.includes('Multidioma');
+            const esReservas = checkboxes.includes('Reservas');
 
             if (estadoHosting === 'Tengo ambos') {
                 cajaRecomendacion.classList.add('hidden');
@@ -217,14 +220,22 @@
 
             cajaRecomendacion.classList.remove('hidden');
 
-            if (esTienda || esMedio) {
-                tituloPlan.innerText = "Plan Recomendado: Hosting CMS / WordPress";
-                descripcionPlan.innerText = "Para tiendas online o webs con sistemas avanzados, te recomendamos el Hosting CMS con optimización específica para WordPress.";
-                boton.href = URL_CMS;
+            if (paginas === '+10 paginas' || (esTienda && (esMultidioma || esReservas))) {
+                tituloPlan.innerText = "Plan Recomendado: Hosting Pro para WordPress";
+                descripcionPlan.innerText = "Ideal para tiendas online grandes, proyectos complejos con alto tráfico o múltiples funcionalidades avanzadas (50 GB SSD, 3072 MB RAM).";
+                boton.href = URL_PRO;
+            } else if (esTienda || paginas === '6-10 paginas' || esMultidioma || esReservas) {
+                tituloPlan.innerText = "Plan Recomendado: Hosting Medio para WordPress";
+                descripcionPlan.innerText = "Perfecto para comercios electrónicos medianos o webs corporativas con varias secciones y sistemas de reservas (25 GB SSD, 2048 MB RAM).";
+                boton.href = URL_MEDIO;
+            } else if (paginas === '1-5 paginas' && !esTienda && !esMultidioma && !esReservas) {
+                tituloPlan.innerText = "Plan Recomendado: Hosting Inicio para WordPress";
+                descripcionPlan.innerText = "La opción más económica y ligera, ideal para landing pages o webs corporativas básicas de hasta 2 dominios (10 GB SSD, 1228 MB RAM).";
+                boton.href = URL_INICIO;
             } else {
-                tituloPlan.innerText = "Plan Recomendado: Hosting SSD / Web";
-                descripcionPlan.innerText = "Perfecto para webs corporativas o landing pages ligeras y rápidas.";
-                boton.href = URL_WEB;
+                tituloPlan.innerText = "Plan Recomendado: Hosting Base para WordPress";
+                descripcionPlan.innerText = "Nuestro estándar más equilibrado. Ideal para webs corporativas de tamaño medio con dominios ilimitados y excelente rendimiento (15 GB SSD, 1536 MB RAM).";
+                boton.href = URL_BASE;
             }
         }
 
@@ -300,16 +311,23 @@
             document.getElementById('btn-prev').classList.add('hidden');
             document.getElementById('btn-submit').classList.add('hidden');
 
+            const tipoProyecto = document.querySelector('input[name="tipo_proyecto"]:checked').value;
             const funcionalidades = Array.from(document.querySelectorAll('#funcionalidades_container input:checked')).map(cb => cb.value).join(', ');
+
+            // Solución: Si es una auditoría, indicamos correctamente que el cliente ya tiene web/hosting activo
+            let situacionHostingFinal = document.getElementById('situacion_hosting').value;
+            if (tipoProyecto === 'Auditoria/Mejoras') {
+                situacionHostingFinal = 'Ya tiene web propia (Auditoría/Mejoras)';
+            }
 
             const data = {
                 nombre_empresa: document.getElementById('nombre_empresa').value,
                 persona_contacto: document.getElementById('persona_contacto').value,
                 email: document.getElementById('email').value,
-                tipo_proyecto: document.querySelector('input[name="tipo_proyecto"]:checked').value,
+                tipo_proyecto: tipoProyecto,
                 paginas: document.getElementById('paginas').value,
                 funcionalidades: funcionalidades,
-                situacion_hosting: document.getElementById('situacion_hosting').value,
+                situacion_hosting: situacionHostingFinal,
                 url_actual: document.getElementById('url_actual').value,
                 accesos: document.getElementById('accesos').value
             };
